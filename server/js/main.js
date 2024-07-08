@@ -24,6 +24,8 @@ function main(config) {
                 });
             }
         }, 1000);
+
+    global.log;
     
     switch(config.debug_level) {
         case "error":
