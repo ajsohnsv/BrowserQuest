@@ -47,8 +47,8 @@ function main() {
 function getTiledJSONmap(filename, callback) {
     var self = this;
     
-    path.exists(filename, function(exists) {
-        if(!exists) {  
+    fs.access(filename, fs.constants.F_OK, (err) => {
+        if(err) {
             log.error(filename + " doesn't exist.")
             return;
         }
