@@ -31,13 +31,13 @@ define(['character', 'timer'], function(Character, Timer) {
             }
 
             if (this.game.player.moveLeft) {
-                this.game.test(position.x - 1, position.y);
+                this.game.keyMove(position.x - 1, position.y);
             } else if (this.game.player.moveRight) {
-                this.game.test(position.x + 1, position.y);
+                this.game.keyMove(position.x + 1, position.y);
             } else if (this.game.player.moveDown) {
-                this.game.test(position.x, position.y + 1);
+                this.game.keyMove(position.x, position.y + 1);
             } else if (this.game.player.moveUp) {
-                this.game.test(position.x, position.y - 1);
+                this.game.keyMove(position.x, position.y - 1);
             }
         },
 

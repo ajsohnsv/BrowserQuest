@@ -1899,13 +1899,10 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
             }
         },
 
-        /**
-         * Processes game logic when the user triggers a click/touch event during the game.
-         */
-        test: function(x, y) {
+        keyMove: function(x, y) {
             var entity;
 
-            var pos = { x: x, y: y}
+            var position = { x: x, y: y};
 
             if(this.started
             && this.player
@@ -1914,26 +1911,19 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
             && !this.player.isDead
             && !this.hoveringCollidingTile
             && !this.hoveringPlateauTile) {
-                entity = this.getEntityAt(pos.x, pos.y);
+                entity = this.getEntityAt(position.x, position.y);
 
-                if(entity instanceof Mob) {
-                    this.makePlayerAttack(entity);
+                if(entity instanceof Mob || entity instanceof Npc) {
+                    // Do nothing.
                 }
                 else if(entity instanceof Item) {
                     this.makePlayerGoToItem(entity);
-                }
-                else if(entity instanceof Npc) {
-                    if(this.player.isAdjacentNonDiagonal(entity) === false) {
-                        this.makePlayerTalkTo(entity);
-                    } else {
-                        this.makeNpcTalk(entity);
-                    }
                 }
                 else if(entity instanceof Chest) {
                     this.makePlayerOpenChest(entity);
                 }
                 else {
-                    this.makePlayerGoTo(pos.x, pos.y);
+                    this.makePlayerGoTo(position.x, position.y);
                 }
             }
         },
