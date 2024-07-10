@@ -1898,6 +1898,45 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
                 }
             }
         },
+
+        /**
+         * Processes game logic when the user triggers a click/touch event during the game.
+         */
+        test: function(x, y) {
+            var entity;
+
+            var pos = { x: x, y: y}
+
+            if(this.started
+            && this.player
+            && !this.isZoning()
+            && !this.isZoningTile(this.player.nextGridX, this.player.nextGridY)
+            && !this.player.isDead
+            && !this.hoveringCollidingTile
+            && !this.hoveringPlateauTile) {
+                entity = this.getEntityAt(pos.x, pos.y);
+
+                if(entity instanceof Mob) {
+                    this.makePlayerAttack(entity);
+                }
+                else if(entity instanceof Item) {
+                    this.makePlayerGoToItem(entity);
+                }
+                else if(entity instanceof Npc) {
+                    if(this.player.isAdjacentNonDiagonal(entity) === false) {
+                        this.makePlayerTalkTo(entity);
+                    } else {
+                        this.makeNpcTalk(entity);
+                    }
+                }
+                else if(entity instanceof Chest) {
+                    this.makePlayerOpenChest(entity);
+                }
+                else {
+                    this.makePlayerGoTo(pos.x, pos.y);
+                }
+            }
+        },
     
         /**
          * Processes game logic when the user triggers a click/touch event during the game.

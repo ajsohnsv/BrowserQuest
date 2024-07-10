@@ -16,6 +16,29 @@ define(['character', 'timer'], function(Character, Timer) {
             this.updateAnimatedTiles();
             this.updateChatBubbles();
             this.updateInfos();
+
+            this.updateMovement();
+        },
+
+        updateMovement: function () {
+            var position = {
+                x: this.game.player.gridX,
+                y: this.game.player.gridY
+            }
+
+            if (this.game.player.isMoving() || this.game.player.movement.inProgress) {
+                return;
+            }
+
+            if (this.game.player.moveLeft) {
+                this.game.test(position.x - 1, position.y);
+            } else if (this.game.player.moveRight) {
+                this.game.test(position.x + 1, position.y);
+            } else if (this.game.player.moveDown) {
+                this.game.test(position.x, position.y + 1);
+            } else if (this.game.player.moveUp) {
+                this.game.test(position.x, position.y - 1);
+            }
         },
 
         updateCharacters: function() {

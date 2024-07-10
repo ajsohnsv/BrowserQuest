@@ -315,6 +315,25 @@ define(['jquery', 'app'], function($, App) {
                     }
                 }
             });
+
+            var keyHandler = function(e) {
+                if (!game.player) {
+                    return;
+                }
+
+                if (e.which == 65) {
+                    game.player.moveLeft = (e.type == "keydown");
+                } else if (e.which == 68) {
+                    game.player.moveRight = (e.type == "keydown");
+                } else if (e.which == 87) {
+                    game.player.moveUp = (e.type == "keydown");
+                } else if (e.which == 83) {
+                    game.player.moveDown = (e.type == "keydown");
+                }
+            }
+
+              $(document).keydown(keyHandler);
+              $(document).keyup(keyHandler);
             
             $('#chatinput').keydown(function(e) {
                 var key = e.which,
@@ -398,6 +417,8 @@ define(['jquery', 'app'], function($, App) {
                     }
                 }
             });
+
+
             
             if(game.renderer.tablet) {
                 $('body').addClass('tablet');
