@@ -1,7 +1,5 @@
-
 var fs = require('fs'),
     Metrics = require('./metrics');
-
 
 function main(config) {
     var ws = require("./ws"),
@@ -9,7 +7,7 @@ function main(config) {
         Log = require('log'),
         _ = require('underscore'),
         server = new ws.Server(config.port),
-        metrics = config.metrics_enabled ? new Metrics(config) : null;
+        metrics = config.metrics_enabled ? new Metrics(config) : null,
         worlds = [],
         lastTotalPlayers = 0,
         checkPopulationInterval = setInterval(function() {
@@ -29,11 +27,11 @@ function main(config) {
     
     switch(config.debug_level) {
         case "error":
-            log = new Log(Log.ERROR); break;
+            global.log = new Log(Log.ERROR); break;
         case "debug":
-            log = new Log(Log.DEBUG); break;
+            global.log = new Log(Log.DEBUG); break;
         case "info":
-            log = new Log(Log.INFO); break;
+            global.log = new Log(Log.INFO); break;
     };
     
     log.info("Starting BrowserQuest game server...");
