@@ -28,7 +28,9 @@ Detect.isChromeOnWindows = function() {
 };
 
 Detect.canPlayMP3 = function() {
-    return Modernizr.audio.mp3;
+    const audio = document.createElement("audio");
+    const mp3 = audio.canPlayType("audio/mpeg;").replace(/^no$/, "");
+    return !!mp3;
 };
 
 Detect.isSafari = function() {
