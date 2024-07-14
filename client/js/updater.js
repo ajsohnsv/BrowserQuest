@@ -21,6 +21,10 @@ define(['character', 'timer'], function(Character, Timer) {
         },
 
         updateMovement: function () {
+            if (!this.game.player) {
+                return;
+            }
+
             var position = {
                 x: this.game.player.gridX,
                 y: this.game.player.gridY
