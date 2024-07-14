@@ -1962,6 +1962,7 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
                         this.makePlayerTalkTo(entity);
         	        } else {
                         this.makeNpcTalk(entity);
+                        this.player.turnTo(this.player.getOrientationTo(entity));
         	        }
         	    }
         	    else if(entity instanceof Chest) {
