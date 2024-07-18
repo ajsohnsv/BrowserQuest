@@ -682,7 +682,7 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
             }
 
             if(!this.isStopped) {
-                requestAnimFrame(this.tick.bind(this));
+                requestAnimationFrame(this.tick.bind(this));
             }
         },
 
