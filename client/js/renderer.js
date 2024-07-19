@@ -16,7 +16,7 @@ function(Camera, Item, Character, Player, Timer) {
             this.initFPS();
             this.tilesize = 16;
         
-            this.upscaledRendering = this.context.mozImageSmoothingEnabled !== undefined;
+            this.upscaledRendering = this.context.imageSmoothingEnabled !== undefined;
             this.supportsSilhouettes = this.upscaledRendering;
         
             this.rescale(this.getScaleFactor());
@@ -73,9 +73,9 @@ function(Camera, Item, Character, Player, Timer) {
         
             this.createCamera();
         
-            this.context.mozImageSmoothingEnabled = false;
-            this.background.mozImageSmoothingEnabled = false;
-            this.foreground.mozImageSmoothingEnabled = false;
+            this.context.imageSmoothingEnabled = false;
+            this.background.imageSmoothingEnabled = false;
+            this.foreground.imageSmoothingEnabled = false;
         
             this.initFont();
             this.initFPS();

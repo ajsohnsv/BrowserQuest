@@ -91,7 +91,7 @@ footer, header, hgroup, menu, nav, section {
     html {-webkit-text-size-adjust: 100%}
 	html, body {height:100%;}
 	
-	body {padding:0;margin:0;background:#111;overflow:hidden;image-rendering:-moz-crisp-edges; image-rendering:-webkit-optimize-contrast;border-top:2px solid #707070;}
+	body {padding:0;margin:0;background:#111;overflow:hidden;image-rendering: pixelated;border-top:2px solid #707070;}
 	
 	canvas { position:absolute;image-rendering:optimizeSpeed;}
 	#background { background:url('../img/common/loading.png') no-repeat center center, #000;}
@@ -128,7 +128,7 @@ footer, header, hgroup, menu, nav, section {
     body.upscaled.game {background:#000;}
     .game #logo {display:none;-moz-animation:none;-webkit-animation:none;-o-animation:none;-ms-animation:none;animation:none;}
         
-    #logo, #logosparks, .left-ornament, .right-ornament, #character, #character div, .button, .button div, #respawn, #scroll, #instructions, .icon, #tilt, .parchment-left, .parchment-middle, .parchment-right, .avatar, .facebook, .twitter, .close, #note, .ribbon .top, .ribbon .bottom, #about .img, .ext-link {background:url('../img/1/spritesheet.png');image-rendering:-moz-crisp-edges; image-rendering:-webkit-optimize-contrast;}
+    #logo, #logosparks, .left-ornament, .right-ornament, #character, #character div, .button, .button div, #respawn, #scroll, #instructions, .icon, #tilt, .parchment-left, .parchment-middle, .parchment-right, .avatar, .facebook, .twitter, .close, #note, .ribbon .top, .ribbon .bottom, #about .img, .ext-link {background:url('../img/1/spritesheet.png');image-rendering:pixelated;}
     
     #moztab {height:49px;width:118px;position:fixed;top:0;right:15%;background:url('../img/1/spritesheet.png') no-repeat -229px -204px;display:block;}
 
