@@ -1909,7 +1909,6 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
             && !this.isZoning()
             && !this.isZoningTile(this.player.nextGridX, this.player.nextGridY)
             && !this.player.isDead
-            && !this.hoveringCollidingTile
             && !this.hoveringPlateauTile) {
                 entity = this.getEntityAt(position.x, position.y);
 
